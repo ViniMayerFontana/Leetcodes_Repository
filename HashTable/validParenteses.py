@@ -14,7 +14,7 @@
 #                 indice = checks.index(valor)
 
 #             else: return False
-
+# []
 # test = Solution()
 # print(test.separateChar("oio"))
 
@@ -77,22 +77,22 @@ print(valor)
 
 class Solution:
     def isValid(self, s: str) -> bool:
-        pilha = []
-        esperado = {'(': ')','[': ']','{': '}'} # ABERTURA É A CHAVE
+        stack = []
+        expectedValue = {'(': ')','[': ']','{': '}'} # ABERTURA É A CHAVE
         
-        for simbolo in s: #PERCORRE CADA TERMO DE S
-            if simbolo in esperado: #TÁ NA HASHTABLE (É DE ABERTURA)?
-                pilha.append(esperado[simbolo]) #ADD SEU FECHAMENTO NA PILHA
+        for simbol in s: #PERCORRE CADA TERMO DE S
+            if simbol in expectedValue: #TÁ NA HASHTABLE (É DE ABERTURA)?
+                stack.append(expectedValue[simbol]) #ADD SEU FECHAMENTO NA PILHA
                 
             else: #SE FOR DE FECHAMENTO
-                if not pilha or pilha.pop() != simbolo: #PILHA VAZIA OU O SIMBOLO ATUAL É != DO QUE DEVERIA SER FECHADO (O ULTIMO DA PILHA)
+                if not stack or stack.pop() != simbol: #PILHA VAZIA OU O SIMBOLO ATUAL É != DO QUE DEVERIA SER FECHADO (O ULTIMO DA PILHA)
                     return False
                     
-        return len(pilha) == 0 # SE TUDO QUE ABRIU FECHOU E FOI REMOVIDO, PILHA DEVE ESTAR VAZIA. FAZ SEES TESTE, DEU TRUE, RETORNA TRUE
+        return len(stack) == 0 # SE TUDO QUE ABRIU FECHOU E FOI REMOVIDO, PILHA DEVE ESTAR VAZIA. FAZ SEES TESTE, DEU TRUE, RETORNA TRUE
 
-solucao = Solution()
-answer1 = solucao.isValid("({}})")
-answer2 = solucao.isValid("({}[])")
+sol = Solution()
+answer1 = sol.isValid("({}})")
+answer2 = sol.isValid("({}[])")
 print(answer1)
 print(answer2)
 

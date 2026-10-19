@@ -1,18 +1,18 @@
 class Solution{
 
     isValid(s) {
-        let stack = [];
-        let pairs = {'(': ')','[': ']','{': '}'};
-
-        for(let simbol = 0; simbol <= s.length; simbol++){
-            let simbolChar = s[simbol]
+        const stack = [];
+        this.pairs = {'(': ')','[': ']','{': '}'};
+        this.pairs['<'] = '>';
+        for(let symbol = 0; symbol <= s.length; symbol++){
+            let symbolChar = s[symbol]
             
-            if (simbolChar in pairs){
-                stack.push(pairs[simbolChar]);
+            if (symbolChar in this.pairs){
+                stack.push(this.pairs[symbolChar]);
             }
             
             else{
-                if (stack == [] || stack.pop() != simbolChar){
+                if (stack == [] || stack.pop() != symbolChar){
                     return false;
                 }
             }
@@ -23,5 +23,6 @@ class Solution{
     }
 }
 test1 = new Solution();
-viewTest1 = test1.isValid("[](){}");
-console.log(viewTest1);
+console.log(test1.isValid("[](){}"));
+console.log(test1.isValid("[](){<>>}"));
+console.log(test1.pairs)
