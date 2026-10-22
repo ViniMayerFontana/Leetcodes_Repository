@@ -33,10 +33,11 @@ int main() {
         else {
             *ptr = 0;        // Zera o valor se for ímpar
         }
-        printf("%d - %d ", *ptr, ptr); 
+        printf("Modified value: %d\n", *ptr);
     
         // Avança o ponteiro para o próximo endereço de memória do array
         ptr++; 
+        printf("ptr after increment: %p\n", (void *)ptr);
     }
     
     // Imprime o array após as modificações para confirmar que deu certo
